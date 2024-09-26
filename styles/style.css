@@ -1,0 +1,29 @@
+/* Estilos para o card */
+.card {
+    width: 400px;
+    height: 300px;
+    background-image: url('background.jpg'); /* Imagem de fundo fixa */
+    background-size: cover;
+    position: relative;
+    margin: 20px auto;
+    border: 2px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Imagem do usuário */
+  .user-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+    display: none; /* Inicialmente escondida até o upload */
+  }
+  
+  /* Estilos para o input de upload */
+  #imageInput {
+    display: block;
+    margin: 20px auto;
+  }
+  

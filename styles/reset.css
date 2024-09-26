@@ -1,0 +1,148 @@
+/* Reset CSS */
+
+/* Box sizing border-box para todos os elementos */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Estilização básica para o corpo da página */
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+  }
+  
+  /* Estilização básica para links */
+  a {
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  /* Remover decoração de lista */
+  ul,
+  ol {
+    list-style: none;
+  }
+  
+  /* Remover margens e preenchimento padrão de elementos de lista */
+  li {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Adicionar estilos de hyperlink para elementos ancorados dentro de outros elementos */
+  a[href] {
+    color: #007bff;
+  }
+  
+  /* Adicionar estilos de cursor para elementos clicáveis */
+  button,
+  [type="button"],
+  [type="reset"],
+  [type="submit"],
+  a,
+  select {
+    cursor: pointer;
+  }
+  
+  /* Adicionar estilo padrão para imagens */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  /* Adicionar estilo básico para formulários */
+  input,
+  textarea,
+  select {
+    font-family: inherit;
+    font-size: inherit;
+  }
+  
+  /* Adicionar estilo para elementos ocultos */
+  [hidden] {
+    display: none !important;
+  }
+  
+  /* Outras redefinições específicas, se necessário */
+  
+  /* Fim do Reset CSS */
+  /* Reset CSS */
+  
+  /* Box sizing border-box para todos os elementos */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Estilização básica para o corpo da página */
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+  }
+  
+  /* Estilização básica para links */
+  a {
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  /* Remover decoração de lista */
+  ul,
+  ol {
+    list-style: none;
+  }
+  
+  /* Remover margens e preenchimento padrão de elementos de lista */
+  li {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Adicionar estilos de hyperlink para elementos ancorados dentro de outros elementos */
+  a[href] {
+    color: #007bff;
+  }
+  
+  /* Adicionar estilos de cursor para elementos clicáveis */
+  button,
+  [type="button"],
+  [type="reset"],
+  [type="submit"],
+  a,
+  select {
+    cursor: pointer;
+  }
+  
+  /* Adicionar estilo padrão para imagens */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  /* Adicionar estilo básico para formulários */
+  input,
+  textarea,
+  select {
+    font-family: inherit;
+    font-size: inherit;
+  }
+  
+  /* Adicionar estilo para elementos ocultos */
+  [hidden] {
+    display: none !important;
+  }
+  
+  /* Outras redefinições específicas, se necessário */
+  
+  /* Fim do Reset CSS */

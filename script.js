@@ -1,5 +1,6 @@
-const imgs = document.getElementById("img");  // Seleciona o contêiner
-const img = document.querySelectorAll("#img img");  // Seleciona todas as imagens
+const imgs = document.getElementById("img");  
+const img = document.querySelectorAll("#img img");  
+const inputLogo = document.getElementById("logoInput");
 
 let idx = 0;
 
@@ -10,7 +11,6 @@ function carrossel() {
         idx = 0;
     }
 
-    // Aplica a transformação ao contêiner das imagens
     imgs.style.transform = `translateX(${-idx * 500}px)`;
 }
 

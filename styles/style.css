@@ -48,3 +48,15 @@ img{
     font-size: 24px;
     cursor: pointer;
 }
+
+.logo{
+    margin: 10px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #FFD700;
+    cursor: pointer;
+}
+
+.logos{
+    display: none;
+}

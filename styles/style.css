@@ -1,4 +1,5 @@
 body {
+    overflow-x: hidden;
     background-image: url("../imagens/background.png");
     background-repeat: no-repeat;
     background-position: center;

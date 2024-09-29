@@ -15,11 +15,11 @@ body {
 
 .carossel {
     position: relative; 
-    box-shadow: 2px 2px 4px black;
     overflow: hidden;
-    height: 500px;
-    width: 500px;
+    height: 31.25rem;
+    width: 31.25rem;
 }
+
 
 .container {
     display: flex;
@@ -29,8 +29,8 @@ body {
 
 img {
     object-fit: cover;
-    height: 500px;
-    width: 500px;
+    height: 31.25rem;
+    width: 31.25rem;
 }
 
 .logo-container {
@@ -44,8 +44,8 @@ img {
 
 #logoContainer img {
     position: absolute;
-    max-width: 150px; 
-    max-height: 150px;
+    max-width: 9.375rem; 
+    max-height: 9.375rem;
     pointer-events: all; 
 }
 
@@ -53,22 +53,22 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10px;
+    margin: 0.625rem;
 }
 
 .botoes button {
-    margin: 10px;
-    padding: 16px;
+    margin: 0.625rem;
+    padding: 1rem;
     background-color: rgba(0, 0, 0, 0.5);
     color: #FFD700;
     border: none;
-    font-size: 24px;
+    font-size: 1.5rem;
     cursor: pointer;
 }
 
 .logo {
-    margin: 10px;
-    padding: 10px;
+    margin: 0.625rem;
+    padding: 0.625rem;
     background-color: rgba(0, 0, 0, 0.5);
     color: #FFD700;
     cursor: pointer;

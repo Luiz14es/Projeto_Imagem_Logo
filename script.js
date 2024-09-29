@@ -44,11 +44,14 @@ inputLogo.addEventListener('change', function(event) {
         const newImg = document.createElement('img');
         newImg.src = e.target.result;
         newImg.alt = "Logo do usuário";
-        newImg.style.width = "150px"; 
-        newImg.style.height = "150px"; 
+        newImg.style.width = "9.375rem"; 
+        newImg.style.height = "9.375rem"; 
         newImg.style.top = "0"; 
         newImg.style.left = "0"; 
-
+        newImg.style.position = "absolute"; 
+        newImg.style.zIndex = "10"; 
+        
+        logoContainer.innerHTML = ''; 
         logoContainer.appendChild(newImg);  
         
         addInteractToLogo(newImg);
@@ -58,7 +61,7 @@ inputLogo.addEventListener('change', function(event) {
 });
 
 function addInteractToLogo(element) {
-    let x = 0, y = 0;
+    let posX = 0, posY = 0;
 
     interact(element)
         .draggable({
@@ -71,7 +74,7 @@ function addInteractToLogo(element) {
                     relativePoints: [{ x: 0, y: 0 }]
                 }),
                 interact.modifiers.restrict({
-                    restriction: "#logoContainer",
+                    restriction: "#logoContainer", 
                     elementRect: { top: 0, left: 0, bottom: 1, right: 1 },
                     endOnly: true
                 })
@@ -79,9 +82,12 @@ function addInteractToLogo(element) {
             inertia: true
         })
         .on('dragmove', function (event) {
-            x += event.dx;
-            y += event.dy;
-            event.target.style.transform = `translate(${x}px, ${y}px)`;
+            posX += event.dx;
+            posY += event.dy;
+            
+            event.target.style.transform = `translate(${posX}px, ${posY}px)`;
+            event.target.setAttribute('data-x', posX);
+            event.target.setAttribute('data-y', posY);
         })
         .resizable({
             edges: { left: true, right: true, bottom: true, top: true },

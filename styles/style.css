@@ -17,7 +17,7 @@ body {
 .carossel {
     position: relative; 
     overflow: hidden;
-    height: 31.25rem;
+    height: 33.25rem;
     width: 31.25rem;
 }
 
@@ -30,7 +30,7 @@ body {
 
 img {
     object-fit: cover;
-    height: 31.25rem;
+    height: 34.25rem;
     width: 31.25rem;
 }
 

@@ -1,12 +1,15 @@
 const imgs = document.getElementById("img");
+const img = document.querySelectorAll("#img img");
 const inputLogo = document.getElementById("logoInput");
 const logoContainer = document.getElementById("logoContainer");
-let idx = 0;
-let x = 0, y = 0;
 
-function carossel() {
+let idx = 0;
+let x = 0, y = 0; 
+let angle = 0;
+
+function carrossel() {
     idx++;
-    if (idx > imgs.children.length - 1) {
+    if (idx > img.length - 1) {
         idx = 0;
     }
     imgs.style.transform = `translateX(${-idx * 500}px)`;
@@ -15,53 +18,45 @@ function carossel() {
 function anteriorImg() {
     idx--;
     if (idx < 0) {
-        idx = imgs.children.length - 1;
+        idx = img.length - 1;
     }
     imgs.style.transform = `translateX(${-idx * 500}px)`;
 }
 
 function proximaImg() {
     idx++;
-    if (idx > imgs.children.length - 1) {
+    if (idx > img.length - 1) {
         idx = 0;
     }
     imgs.style.transform = `translateX(${-idx * 500}px)`;
 }
 
-document.getElementById("anterior").addEventListener("click", () => {
-    anteriorImg();
-});
+document.getElementById("anterior").addEventListener("click", () => anteriorImg());
+document.getElementById("proxima").addEventListener("click", () => proximaImg());
 
-document.getElementById("proxima").addEventListener("click", () => {
-    proximaImg();
-});
-
-inputLogo.addEventListener('change', function(event) {
+inputLogo.addEventListener('change', function (event) {
     const file = event.target.files[0];
-    const reader = new FileReader();
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            const logoElement = document.createElement('img');
+            logoElement.src = e.target.result;
+            logoElement.id = "logo";  
+            logoElement.style.position = "absolute";
+            logoElement.style.top = "0";
+            logoElement.style.left = "0";
+            logoElement.style.width = "100px";  
+            logoElement.style.height = "100px"; 
+            logoContainer.appendChild(logoElement);
 
-    reader.onload = function(e) {
-        const newImg = document.createElement('img');
-        newImg.src = e.target.result;
-        newImg.alt = "Logo do usuário";
-        newImg.style.width = "9.375rem"; 
-        newImg.style.height = "9.375rem"; 
-        newImg.style.top = "0"; 
-        newImg.style.left = "0"; 
-        newImg.style.position = "absolute"; 
-        newImg.style.zIndex = "10"; 
-        
-        logoContainer.innerHTML = ''; 
-        logoContainer.appendChild(newImg);  
-        
-        addInteractToLogo(newImg);
+            addInteractToLogo(logoElement);
+        };
+        reader.readAsDataURL(file);
     }
-
-    reader.readAsDataURL(file);
 });
 
 function addInteractToLogo(element) {
-    let posX = 0, posY = 0;
+    let posX = 0, posY = 0; 
 
     interact(element)
         .draggable({
@@ -84,8 +79,8 @@ function addInteractToLogo(element) {
         .on('dragmove', function (event) {
             posX += event.dx;
             posY += event.dy;
-            
-            event.target.style.transform = `translate(${posX}px, ${posY}px)`;
+
+            event.target.style.transform = `translate(${posX}px, ${posY}px) rotate(${angle}deg)`;
             event.target.setAttribute('data-x', posX);
             event.target.setAttribute('data-y', posY);
         })
@@ -103,7 +98,7 @@ function addInteractToLogo(element) {
                     x += event.deltaRect.left;
                     y += event.deltaRect.top;
 
-                    target.style.transform = `translate(${x}px,${y}px)`;
+                    target.style.transform = `translate(${x}px, ${y}px) rotate(${angle}deg)`;
 
                     target.setAttribute('data-x', x);
                     target.setAttribute('data-y', y);
@@ -114,5 +109,16 @@ function addInteractToLogo(element) {
                 interact.modifiers.restrictSize({ min: { width: 50, height: 50 } })
             ],
             inertia: true
+        })
+        .gesturable({
+            onmove: function (event) {
+                angle += event.da; 
+                event.target.style.transform = `translate(${posX}px, ${posY}px) rotate(${angle}deg)`;
+            }
+        })
+        .on('click', function () {
+            angle += 90; 
+            angle %= 360; 
+            element.style.transform = `translate(${posX}px, ${posY}px) rotate(${angle}deg)`; 
         });
 }
